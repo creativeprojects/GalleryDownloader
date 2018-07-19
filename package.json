@@ -1,0 +1,19 @@
+{
+  "name": "gallerydownloader",
+  "version": "1.0.0",
+  "description": "Download all images from webpage",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Creative Projects",
+  "license": "UNLICENSED",
+  "private": true,
+  "repository": {
+      "type": "git",
+      "url": "https://github.com/creativeprojects/GalleryDownloader"
+  },
+  "dependencies": {
+    "command-line-args": "^5.0.2",
+    "puppeteer": "^1.6.0"
+  }
+}
