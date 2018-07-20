@@ -45,6 +45,18 @@ const optionDefinitions = [
         type: Number,
         defaultValue: 1160
     },
+    {
+        name: 'timeout',
+        alias: 't',
+        type: Number,
+        defaultValue: 120000
+    },
+    {
+        name: 'wait',
+        alias: 'i',
+        type: Number,
+        defaultValue: 10000
+    },
 ];
 const options = commandLineArgs(optionDefinitions);
 
@@ -139,11 +151,18 @@ function mkDirByPathSync(targetDir, {isRelativeToScript = false} = {}) {
     });
 
     console.log(`Loading page '${options.url}'...`);
-    const response = await page.goto(options.url);
-    const chain = response.request().redirectChain();
-    console.log('Page returned code ' + response.status() + ' after ' + chain.length + ' redirection(s)');
-    await page.waitFor(10000);
+    var gotoOptions = {
+        timeout: options.timeout,
+        waitUntil: ["networkidle0"]
+    };
 
-    console.log(`Done!`);
+    try {
+        const response = await page.goto(options.url, gotoOptions);
+        const chain = response.request().redirectChain();
+        console.log('Page returned code ' + response.status() + ' after ' + chain.length + ' redirection(s)');
+    } catch (error) {
+        console.error(error);
+    }
+    await page.waitFor(options.wait);
     await browser.close();
 })();
