@@ -9,11 +9,11 @@
   "license": "UNLICENSED",
   "private": true,
   "repository": {
-      "type": "git",
-      "url": "https://github.com/creativeprojects/GalleryDownloader"
+    "type": "git",
+    "url": "https://github.com/creativeprojects/GalleryDownloader"
   },
   "dependencies": {
-    "command-line-args": "^5.0.2",
-    "puppeteer": "^1.6.0"
+    "command-line-args": "^5.1.1",
+    "puppeteer": "^1.20.0"
   }
 }
