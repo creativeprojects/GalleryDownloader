@@ -9,7 +9,7 @@ const optionDefinitions = [
         name: 'url',
         alias: 'u',
         type: String,
-        defaultValue: 'https://example.com/'
+        defaultValue: 'http://creativeprojects.tech/'
     },
     {
         name: 'username',
@@ -31,7 +31,7 @@ const optionDefinitions = [
         name: 'useragent',
         alias: 'a',
         type: String,
-        defaultValue: 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.117 Safari/537.36',
+        defaultValue: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36',
     },
     {
         name: 'width',
@@ -163,6 +163,6 @@ function mkDirByPathSync(targetDir, {isRelativeToScript = false} = {}) {
     } catch (error) {
         console.error(error);
     }
-    await page.waitFor(options.wait);
+    await page.waitForTimeout(options.wait);
     await browser.close();
 })();
